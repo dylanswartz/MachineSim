@@ -9,3 +9,5 @@ Add mem loc 101 to ACC (1)
 Store ACC in mem loc 201 (100)
 Write mem loc 201 (100)
 Halt.
+63 hex = 99 dec
+1 hex = 1 dec
