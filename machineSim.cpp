@@ -39,6 +39,14 @@ int main()
           #endif
           pc++; 
           break;
+	 case 0x02000000 : // subtract
+		  address = mem[pc] & 0x00ffffff;
+		  acc = acc - mem[address]; 
+	      #if DEBUG 
+		  printf("Debug-> SUB acc: %d  address: %x\n",acc,address);
+		  #endif
+		  pc++; 
+		  break;
       case 0x03000000 : // write word
           address = mem[pc] & 0x00ffffff;
           printf("%x\n",mem[address]);
