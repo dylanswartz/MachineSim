@@ -3,16 +3,30 @@ Subtract garbage from ACC
 Add mem loc 100 to ACC (99)
 Store ACC in mem loc 201 (99)
 Write mem loc 201 (99)
-Goto mem loc 25 (skiping halt)
+Goto mem loc 24 (skiping halt)
 Halt. (Should be skippped)
 Add mem loc 101 to ACC (1)
-Store ACC in mem loc 201 (100)
-Write mem loc 201 (100)
+Divide ACC by 10
+Multiply ACC by 5
+Store ACC in mem loc 201 
+Write mem loc 201
 Subtract 1 from ACC.
-Branch to mem loc 29 while ACC > 0
+Branch to mem loc 28 while ACC > 0
 Store ACC in mem loc 201
 Write mem loc 201
+Subtract 10 from ACC (acc = -10)
+Add 1 to ACC
+Branch to mem loc 2d while ACC < 0
+Store
+Write
+If ACC == zero goto mem loc 50
+else Halt
+Load 5 into ACC
+Store
+Write
 Halt.
 63 hex = 99 dec
 1 hex = 1 dec
-16 hex = 10 dec
+a hex = 10 dec
+5 hex = 5 dec
+EOF

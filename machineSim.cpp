@@ -82,15 +82,88 @@ int main()
                 #endif
                 pc++;
                 break;
-            case 0x07000000 : // go to
+            case 0x07000000 : // goto
                 address = mem[pc] & 0x00ffffff;
                 pc = address;   // move pc to address
                 #if DEBUG
-                    printf("Debug-> PC moved to %d\n",pc);
+                    printf("Debug-> PC moved to %x\n",pc);
+                #endif
+                break;
+            case 0x08000000 : // bp (branch if positive)
+                #if DEBUG
+                    printf("Debug-> PC before branch: %x\n",pc);
+                #endif
+                if (acc > 0) {
+                    address = mem[pc] & 0x00ffffff;
+                    pc = address;   // move pc to address
+                } else {
+                    pc++;
+                }
+                #if DEBUG
+                    printf("Debug-> PC after branch: %x\n",pc);
+                #endif
+                break;
+           case 0x09000000 : // bn (branch if negitive)
+                #if DEBUG
+                    printf("Debug-> PC before branch: %x\n",pc);
+                #endif
+                if (acc < 0) {
+                    address = mem[pc] & 0x00ffffff;
+                    pc = address;   // move pc to address
+                } else {
+                    pc++;
+                }
+                #if DEBUG
+                    printf("Debug-> PC after branch: %x\n",pc);
+                #endif
+                break;
+            case 0x0a000000 : // bz (branch if zero)
+                #if DEBUG
+                    printf("Debug-> PC before branch: %x\n",pc);
+                #endif
+                if (acc == 0) {
+                    address = mem[pc] & 0x00ffffff;
+                    pc = address;   // move pc to address
+                } else {
+                    pc++;
+                }
+                #if DEBUG
+                    printf("Debug-> PC after branch: %x\n",pc);
                 #endif
                 break;
                 
-            // rest of instructions go here.
+                /* STACK COMMANDS HERE */
+
+            case 0x10000000 : // mult (multiply)
+                address = mem[pc] & 0x00ffffff;
+                acc = acc * mem[address];
+                #if DEBUG
+                    printf("Debug-> MULT acc: %d  address: %x\n",acc,address);
+                #endif
+                pc++;
+                break;
+
+            case 0x11000000 : // div (divide)
+                address = mem[pc] & 0x00ffffff;
+                #if DEBUG
+                    printf("Debug-> divide %d by %d\n",acc,mem[address]);
+                #endif
+                acc = acc / mem[address];
+                #if DEBUG
+                    printf("Debug-> DIV acc: %d  address: %x\n",acc,address);
+                #endif
+                pc++;
+                break;
+
+            case 0x12000000 : // rem (modulus)
+                address = mem[pc] & 0x00ffffff;
+                acc = acc % mem[address];
+                #if DEBUG
+                    printf("Debug-> DIV acc: %d  address: %x\n",acc,address);
+                #endif
+                pc++;
+                break;
+                
             default:
                 printf("Not a valid instruction.\n");
                 pc++;
