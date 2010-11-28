@@ -1,3 +1,7 @@
+// Dylan Swartz
+// CS331 Fall 2010
+// Machine Simulator
+
 #include <cstdio>      
 #define DEBUG 1
 #define MEM_BOTTOM 65535
