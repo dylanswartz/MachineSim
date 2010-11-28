@@ -1,5 +1,6 @@
 #include <cstdio>      
 #define DEBUG 1
+#define MEM_BOTTOM 65535
 using namespace std;
 int main()
 {
@@ -11,7 +12,7 @@ int main()
     // place. All input data will follow the load file termination line.
     // So in our simulation the load information and the input data
     // are in the same file.
-    unsigned int mem[65536];//smaller memory that address size
+    unsigned int mem[MEM_BOTTOM + 1];//smaller memory that address size
     int acc=0;
     unsigned int pc;
     unsigned int sp;
@@ -23,8 +24,8 @@ int main()
         mem[loc]=inst;  // loads the instruction into memory
         scanf("%x %x", &loc,&inst);
     }
-    pc=inst;
-//    sp=65535; //bottom of memory
+    pc = inst;
+    sp = MEM_BOTTOM; //bottom of memory
     printf("Execution will start in location: %x\n",inst);
     // Your machine simulator starts here.
     while ((mem[pc] & 0xff000000 )!= 0) { //end if halt op code
@@ -133,6 +134,46 @@ int main()
                 break;
                 
                 /* STACK COMMANDS HERE */
+            case 0x0b000000 : // gosub (push address of next instruction onto
+                              // the stack)
+                pc++;
+                break;
+
+            case 0x0c000000 : // retsub (set pc to top of stack)
+
+                pc++;
+                break;
+
+            case 0x0d000000 : //push
+                sp--; // remember we are working from the bottom up
+                address = mem[pc] & 0x00ffffff;
+                mem[sp] = mem[address];
+                #if DEBUG
+                    printf("Debug-> PUSH top: %x address: %x\n", mem[sp], address);
+                #endif
+                pc++;
+                break;
+
+            case 0x0e000000 : //pop
+                if (sp < MEM_BOTTOM) {
+                    sp++;
+                    #if DEBUG
+                        printf("Debug-> POP sp was:%d sp is:%d\n", sp-1, sp);
+                    #endif
+                } else {
+                    printf("Nothing to pop.");
+                }
+                pc++;
+                break;
+
+            case 0x0f000000 : //top
+                address = mem[pc] & 0x00ffffff;
+                mem[address] = mem[sp];
+                #if DEBUG
+                    printf("Debug-> TOP: top: %x address: %x\n", mem[sp], address);
+                #endif
+                pc++;
+                break;
 
             case 0x10000000 : // mult (multiply)
                 address = mem[pc] & 0x00ffffff;

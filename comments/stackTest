@@ -1,0 +1,11 @@
+load 1 into the ACC
+Push 1 onto the stack
+load 2 into the ACC
+push 2 onto the stack
+put 2 into mem loc 100
+write mem loc 100
+decrement stack pointer (pop)
+put 1 into mem loc 100
+withe mem loc 100
+decrement stack pointer
+halt
