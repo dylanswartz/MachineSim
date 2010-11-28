@@ -1,5 +1,5 @@
-Store ACC garbage in mem loc 200
-Subtract garbage from ACC
+Load 5 into ACC
+Zero out ACC by using REM (5 % 5 = 0)
 Add mem loc 100 to ACC (99)
 Store ACC in mem loc 201 (99)
 Write mem loc 201 (99)
