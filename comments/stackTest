@@ -8,4 +8,8 @@ decrement stack pointer (pop)
 put 1 into mem loc 100
 withe mem loc 100
 decrement stack pointer
+push address b onto stack
+add 2 to ACC
+put top of stack in mem loc 100
+writ mem loc 100
 halt

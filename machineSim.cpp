@@ -53,8 +53,8 @@ int main()
                 break;
             case 0x03000000 : // write word
                 address = mem[pc] & 0x00ffffff;
-                //printf("%x\n",mem[address]);// write in hex
-                printf("%d\n",mem[address]);  // write in decimal
+                printf("%x\n",mem[address]);// write in hex
+                //printf("%d\n",mem[address]);  // write in decimal
                 #if DEBUG
                     printf("Debug-> WRITE acc: %d  address: %x\n",acc,address);
                 #endif
@@ -136,6 +136,11 @@ int main()
                 /* STACK COMMANDS HERE */
             case 0x0b000000 : // gosub (push address of next instruction onto
                               // the stack)
+                sp--; // remember we are working from the bottom up
+                mem[sp] = pc + 1; // address of next instruction
+                #if DEBUG
+                    printf("Debug-> GOSUB top: %x\n", mem[sp]);
+                #endif
                 pc++;
                 break;
 
