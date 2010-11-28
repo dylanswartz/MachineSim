@@ -65,10 +65,13 @@ int main()
                 pc++;
                 break;
             case 0x04000000 : // read
-                // WHAT IS THE INPUT DEVICE? KEBOARD?!
+                // Should read get data from the keyboard?
+                /*address = mem[pc] & 0x00ffffff;
+                printf("Enter a hex number: ");
+                scanf("%x", &mem[address]);
                 #if DEBUG
                     printf("Debug-> READ acc: %d  address: %x\n",acc,address);
-                #endif
+                #endif*/
                 pc++;
                 break;
             case 0x05000000 : // load
@@ -178,7 +181,7 @@ int main()
                         printf("Debug-> POP sp was:%d sp is:%d\n", sp-1, sp);
                     #endif
                 } else {
-                    printf("Nothing to pop.");
+                    printf("Nothing to pop.\n");
                 }
                 pc++;
                 break;
@@ -218,6 +221,32 @@ int main()
                 acc = acc % mem[address];
                 #if DEBUG
                     printf("Debug-> DIV acc: %d  address: %x\n",acc,address);
+                #endif
+                pc++;
+                break;
+
+            // EXTRA CREDIT COMMADS
+
+            case 0x13000000 : // inc (increment ACC)
+                acc++;
+                #if DEBUG
+                    printf("Debug-> INC acc: %d\n",acc);
+                #endif
+                pc++;
+                break;
+
+            case 0x14000000 : // dec (decrement ACC)
+                acc--;
+                #if DEBUG
+                    printf("Debug-> DEC acc: %d\n",acc);
+                #endif
+                pc++;
+                break;
+
+            case 0x15000000 : // STKEMP (empty stack)
+                sp = MEM_BOTTOM;
+                #if DEBUG
+                    printf("Debug-> STKEMP sp: %d\n", sp);
                 #endif
                 pc++;
                 break;

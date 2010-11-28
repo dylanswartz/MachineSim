@@ -10,12 +10,12 @@ Divide ACC by 10
 Multiply ACC by 5
 Store ACC in mem loc 201 
 Write mem loc 201
-Subtract 1 from ACC.
+Decrement ACC
 Branch to mem loc 28 while ACC > 0
 Store ACC in mem loc 201
 Write mem loc 201
 Subtract 10 from ACC (acc = -10)
-Add 1 to ACC
+Increment ACC
 Branch to mem loc 2d while ACC < 0
 Store
 Write
