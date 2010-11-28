@@ -30,7 +30,7 @@ int main()
     // Your machine simulator starts here.
     while ((mem[pc] & 0xff000000 )!= 0) { //end if halt op code
         #if DEBUG
-            printf("Program Counter: %x\n", pc);
+            printf("Debug-> Program Counter: %x\n", pc);
         #endif
         // decode instruction
         // switch based on opcode
@@ -145,8 +145,16 @@ int main()
                 break;
 
             case 0x0c000000 : // retsub (set pc to top of stack)
-
-                pc++;
+                pc = mem[sp];
+                if (sp < MEM_BOTTOM) {
+                    sp++;
+                    #if DEBUG
+                        printf("Debug-> GOSUB pc:%x\n", sp-1, sp);
+                    #endif
+                } else {
+                    printf("Nothing to pop.");
+                    pc++;
+                }
                 break;
 
             case 0x0d000000 : //push
