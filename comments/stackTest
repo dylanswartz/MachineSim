@@ -14,4 +14,6 @@ put top of stack in mem loc 100
 write mem loc 100
 Halt if ACC is 0
 Gosub (go to b and pop stack)
-halt YAY!
+Empty stack
+Pop stack (prints nothing to pop)
+halt
