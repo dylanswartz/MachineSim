@@ -1,0 +1,26 @@
+Location: 0     Instruction: 5000016
+Location: 1     Instruction: d000016
+Location: 2     Instruction: 5000017
+Location: 3     Instruction: d000017
+Location: 4     Instruction: f000100
+Location: 5     Instruction: 3000100
+Location: 6     Instruction: e000000
+Location: 7     Instruction: f000100
+Location: 8     Instruction: 3000100
+Location: 9     Instruction: e000000
+Location: a     Instruction: b000000
+Location: b     Instruction: 2000017
+Location: c     Instruction: f000100
+Location: d     Instruction: 3000100
+Location: e     Instruction: a000010
+Location: f     Instruction: c000000
+Location: 10     Instruction: 15000000
+Location: 11     Instruction: e000000
+Location: 12     Instruction: 0
+Location: 16     Instruction: 1
+Location: 17     Instruction: 2
+Execution will start in location: 0
+2
+1
+b
+Nothing to pop.

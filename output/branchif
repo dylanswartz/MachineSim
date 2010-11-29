@@ -1,0 +1,40 @@
+Location: 0     Instruction: 5000103
+Location: 1     Instruction: 12000103
+Location: 2     Instruction: 1000100
+Location: 3     Instruction: 6000201
+Location: 4     Instruction: 3000201
+Location: 5     Instruction: 7000023
+Location: 6     Instruction: 0
+Location: 23     Instruction: 1000101
+Location: 24     Instruction: 11000102
+Location: 25     Instruction: 10000103
+Location: 26     Instruction: 6000201
+Location: 27     Instruction: 3000201
+Location: 28     Instruction: 14000000
+Location: 29     Instruction: 8000028
+Location: 2a     Instruction: 6000201
+Location: 2b     Instruction: 3000201
+Location: 2c     Instruction: 2000102
+Location: 2d     Instruction: 13000000
+Location: 2e     Instruction: 900002d
+Location: 2f     Instruction: 6000201
+Location: 30     Instruction: 3000201
+Location: 31     Instruction: a000050
+Location: 32     Instruction: 0
+Location: 50     Instruction: 5000103
+Location: 51     Instruction: 6000201
+Location: 52     Instruction: 3000201
+Location: 53     Instruction: 4000201
+Location: 54     Instruction: 3000201
+Location: 55     Instruction: 0
+Location: 100     Instruction: 63
+Location: 101     Instruction: 1
+Location: 102     Instruction: a
+Location: 103     Instruction: 5
+Execution will start in location: 0
+63
+32
+0
+0
+5
+ff

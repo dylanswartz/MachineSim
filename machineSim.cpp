@@ -3,7 +3,7 @@
 // Machine Simulator
 
 #include <cstdio>      
-#define DEBUG 1
+#define DEBUG 0 
 #define MEM_BOTTOM 65535
 using namespace std;
 int main()
