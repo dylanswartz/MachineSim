@@ -65,13 +65,12 @@ int main()
                 pc++;
                 break;
             case 0x04000000 : // read
-                // Should read get data from the keyboard?
-                /*address = mem[pc] & 0x00ffffff;
-                printf("Enter a hex number: ");
+                address = mem[pc] & 0x00ffffff;
                 scanf("%x", &mem[address]);
                 #if DEBUG
-                    printf("Debug-> READ acc: %d  address: %x\n",acc,address);
-                #endif*/
+                    printf("Debug-> READ address: %x value: %x\n",address,
+                                                                  mem[address]);
+                #endif
                 pc++;
                 break;
             case 0x05000000 : // load
@@ -169,7 +168,8 @@ int main()
                 address = mem[pc] & 0x00ffffff;
                 mem[sp] = mem[address];
                 #if DEBUG
-                    printf("Debug-> PUSH top: %x address: %x\n", mem[sp], address);
+                    printf("Debug-> PUSH top: %x address: %x\n", mem[sp],
+                                                                 address);
                 #endif
                 pc++;
                 break;
@@ -190,7 +190,8 @@ int main()
                 address = mem[pc] & 0x00ffffff;
                 mem[address] = mem[sp];
                 #if DEBUG
-                    printf("Debug-> TOP: top: %x address: %x\n", mem[sp], address);
+                    printf("Debug-> TOP: top: %x address: %x\n", mem[sp],
+                                                                 address);
                 #endif
                 pc++;
                 break;

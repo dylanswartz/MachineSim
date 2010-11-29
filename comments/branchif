@@ -24,6 +24,8 @@ else Halt
 Load 5 into ACC
 Store
 Write
+Read
+Write
 Halt.
 63 hex = 99 dec
 1 hex = 1 dec
